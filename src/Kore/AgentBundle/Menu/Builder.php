@@ -46,7 +46,19 @@ class Builder implements ContainerAwareInterface
                 ),
             ));
         $sidemenu['sidemenu.solicitud.root']->addChild('sidemenu.solicitud.show', array('route' => 'agent_solicitud_buscar'))
-            ->setExtras(array('translation_domain' => 'KoreAgentBundle', 'routes' => array('agent_solicitud_buscar', 'agent_solicitud_show')));
+            ->setExtras(array('translation_domain' => 'KoreAgentBundle', 'routes' => array(
+                    'agent_solicitud_buscar',
+                    'agent_solicitud_show'
+                )
+            ));
+        $sidemenu['sidemenu.solicitud.root']->addChild('sidemenu.solicitud.tipos', array('route' => 'agent_solicitudtipo_index'))
+            ->setExtras(array('translation_domain' => 'KoreAgentBundle', 'routes' => array(
+                    'agent_solicitudtipo_index',
+                    'agent_solicitudtipo_show',
+                    'agent_solicitudtipo_new',
+                    'agent_solicitudtipo_edit'
+                )
+            ));
 
 // Menú Ruta
         $sidemenu->addChild('sidemenu.ruta.root')->setExtras(array('translation_domain' => 'KoreAgentBundle', 'routes' => array('agent_ruta_edit')));

@@ -11,6 +11,7 @@ sidemenu:
         indexR05: En ruta enviada
         proceso: Ingresar nueva
         show: Ver solicitudes
+        tipos: Tipos de solicitud
     ruta:
         root: Rutas
         indexR00: Nuevas
@@ -269,3 +270,33 @@ encuestador:
         message: Los datos no podrán ser recuperados.
         submit: Confirmar borrado
         flash: El encuestador fué borrado.
+solicitudtipo:
+    form:
+        id: ID
+        nombre: Nombre
+    index:
+        title: Tipos de solicitud
+        list: Lista de tipos
+        link: Volver a la lista
+    new:
+        title: Tipos de solicitud
+        link: Nuevo tipo de solicitud
+        form: Formulario de registro de tipo de solicitud
+        submit: Registrar tipo de solicitud
+        flash: Nuevo tipo de solicitud registrado.
+    edit:
+        title: Tipos de solicitud
+        link: Editar datos
+        form: Formulario de edición de tipo de solicitud
+        submit: Guardar cambios
+        flash: Los cambios en el tipo de solicitud fueron registrados satisfactoriamente.
+    show:
+        title: Tipos de solicitud
+        link: Mostrar datos
+        data: Datos de tipo de solicitud
+    delete:
+        link: Borrar tipo de solicitud
+        title: Borrado de tipo de solicitud
+        message: Los datos no podrán ser recuperados.
+        submit: Confirmar borrado
+        flash: El tipo de solicitud fué borrado.

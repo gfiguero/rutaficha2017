@@ -1,0 +1,24 @@
+agent_solicitudtipo_index:
+    path:     /
+    defaults: { _controller: "KoreAgentBundle:SolicitudTipo:index" }
+    methods:  GET
+
+agent_solicitudtipo_show:
+    path:     /{id}/show
+    defaults: { _controller: "KoreAgentBundle:SolicitudTipo:show" }
+    methods:  GET
+
+agent_solicitudtipo_new:
+    path:     /new
+    defaults: { _controller: "KoreAgentBundle:SolicitudTipo:new" }
+    methods:  [GET, POST]
+
+agent_solicitudtipo_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "KoreAgentBundle:SolicitudTipo:edit" }
+    methods:  [GET, POST]
+
+agent_solicitudtipo_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "KoreAgentBundle:SolicitudTipo:delete" }
+    methods:  DELETE
