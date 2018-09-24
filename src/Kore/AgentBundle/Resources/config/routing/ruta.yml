@@ -1,21 +1,16 @@
 agent_ruta_estado_0:
     path:     /estado0
-    defaults: { _controller: "KoreAgentBundle:Ruta:estado", codigo: 'R00' }
+    defaults: { _controller: "KoreAgentBundle:Ruta:index", codigo: 'R00' }
     methods:  GET
 
 agent_ruta_estado_5:
     path:     /estado5
-    defaults: { _controller: "KoreAgentBundle:Ruta:estado", codigo: 'R05' }
+    defaults: { _controller: "KoreAgentBundle:Ruta:index", codigo: 'R05' }
     methods:  GET
 
 agent_ruta_estado_10:
     path:     /estado10
-    defaults: { _controller: "KoreAgentBundle:Ruta:estado", codigo: 'R10' }
-    methods:  GET
-
-agent_ruta_index:
-    path:     /
-    defaults: { _controller: "KoreAgentBundle:Ruta:index" }
+    defaults: { _controller: "KoreAgentBundle:Ruta:index", codigo: 'R10' }
     methods:  GET
 
 agent_ruta_show:

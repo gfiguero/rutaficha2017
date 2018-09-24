@@ -14,7 +14,7 @@ class RutaBuscarType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder 
+        $builder
             ->add('id', null, array(
                 'label' => 'ruta.form.id',
                 'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
@@ -23,10 +23,10 @@ class RutaBuscarType extends AbstractType
                 'constraints' => array(
                     new NotBlank(),
                 ),
-            )) 
+            ))
         ;
     }
-    
+
     /**
      * {@inheritdoc}
      */
@@ -34,6 +34,5 @@ class RutaBuscarType extends AbstractType
     {
         return 'kore_agentbundle_rutabuscar';
     }
-
 
 }

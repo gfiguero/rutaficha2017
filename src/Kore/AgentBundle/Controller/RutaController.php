@@ -2,54 +2,29 @@
 
 namespace Kore\AgentBundle\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
+
 use Kore\AdminBundle\Entity\Ruta;
 use Kore\AgentBundle\Form\RutaType;
 use Kore\AgentBundle\Form\RutaBuscarType;
 use Kore\AgentBundle\Form\RutaReceiptType;
 use Kore\AdminBundle\Entity\RutaEstado;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Request;
 
 /**
- * Rutum controller.
+ * Ruta controller.
  *
  */
 class RutaController extends Controller
 {
 
-    public function estadoAction(Request $request, RutaEstado $estado)
-    {
-        $sort = $request->query->get('sort');
-        $direction = $request->query->get('direction');
-        $em = $this->getDoctrine()->getManager();
-//        if($sort) $rutas = $em->getRepository('KoreAdminBundle:Ruta')->findBy(array('estado' => $estado), array($sort => $direction));
-//        else $rutas = $em->getRepository('KoreAdminBundle:Ruta')->findBy(array('estado' => $estado));
-//        if($sort) $rutas = $em->getRepository('KoreAdminBundle:Ruta')->findByEstadoId(array('estado' => $estado), array($sort => $direction));
-//        else $rutas = $em->getRepository('KoreAdminBundle:Ruta')->findByEstadoId($estado->getId(), $sort, $direction);
-        $rutas = $em->getRepository('KoreAdminBundle:Ruta')->findByEstadoId($estado->getId(), $sort, $direction);
-        $paginator = $this->get('knp_paginator');
-        $rutas = $paginator->paginate($rutas, $request->query->getInt('page', 1), 100);
-
-        return $this->render('KoreAgentBundle:Ruta:index.html.twig', array(
-            'rutas' => $rutas,
-            'direction' => $direction,
-            'sort' => $sort,
-        ));
-    }
-
-    /**
-     * Lists all Ruta entities.
-     *
-     */
     public function indexAction(Request $request, RutaEstado $estado)
     {
-        dump($estado);
         $sort = $request->query->get('sort');
         $direction = $request->query->get('direction');
         $em = $this->getDoctrine()->getManager();
-        if($sort) $rutas = $em->getRepository('KoreAdminBundle:Ruta')->findBy(array('estado', $estado), array($sort => $direction));
-        else $rutas = $em->getRepository('KoreAdminBundle:Ruta')->findBy(array('estado', $estado));
+        $rutas = $em->getRepository('KoreAdminBundle:Ruta')->findByEstadoId($estado->getId(), $sort, $direction);
         $paginator = $this->get('knp_paginator');
         $rutas = $paginator->paginate($rutas, $request->query->getInt('page', 1), 100);
 

@@ -26,7 +26,8 @@ class Builder implements ContainerAwareInterface
     public function sideMenu(FactoryInterface $factory, array $options)
     {
         $sidemenu = $factory->createItem('root');
-        $sidemenu->setChildrenAttribute('class', 'metismenu');
+        $sidemenu->setCurrent($this->container->get('request')->getRequestUri());
+        $sidemenu->setChildrenAttribute('class', 'nav nav-pills nav-stacked');
         $sidemenu->setChildrenAttribute('id', 'side-menu');
 
 // Menú Solicitud

@@ -129,6 +129,29 @@ resumen:
             title: Personas
             totales: Totales
 
+domicilio:
+    edit:
+        link: Editar datos
+    show:
+        title: Información de domicilio
+        data: Datos del domicilio
+        solicitud:
+            list: Lista de solicitudes registradas para este domicilio
+            vacio: El domicilio no presenta solicitudes registradas
+        domicilio:
+            list: Lista de otros domicilios registrados con el mismo rol
+            vacio: No se encontraron otros domicilios registrados con el mismo rol
+    form:
+        id: ID
+        direccion: Dirección
+        unidadvecinal: Unidad Vecinal
+        rol: Rol
+        persona: Persona
+        buscar: Buscar
+        seleccionar: Seleccionar
+        created_at: Registro
+        updated_at: Actualización
+
 ruta:
     index:
         title: Rutas
@@ -162,6 +185,8 @@ ruta:
         encuestador: Encuestador
         estado: Estado
         solicitudes: Solicitudes
+        placeholder:
+            encuestador: Seleccione un encuestador
     delete:
         link: Borrar ruta
         title: Borrado de ruta
@@ -177,6 +202,43 @@ ruta:
         title: Rutas
         form: Buscar una ruta
         submit: Buscar
+
+encuestador:
+    form:
+        id: ID
+        rut: Rut
+        nombre: Nombre
+        apellido: Apellido
+        email: Email
+        celular: Celular
+        created_at: Registro
+        updated_at: Actualización
+    index:
+        title: Encuestadores
+        list: Lista de encuestadores
+        link: Volver a la lista
+    new:
+        title: Encuestadores
+        link: Nuevo encuestador
+        form: Formulario de registro de encuestador
+        submit: Registrar encuestador
+        flash: Nuevo encuestador registrado.
+    show:
+        title: Encuestadores
+        link: Mostrar datos
+        data: Datos de encuestador
+    edit:
+        title: Encuestadores
+        link: Editar datos
+        form: Formulario de edición de encuestador
+        submit: Guardar cambios
+        flash: Los cambios en el encuestador fueron registrados satisfactoriamente.
+    delete:
+        link: Borrar encuestador
+        title: Borrado de encuestador
+        message: Los datos no podrán ser recuperados.
+        submit: Confirmar borrado
+        flash: El encuestador fué borrado.
 
 persona:
     form:
@@ -209,63 +271,3 @@ persona:
         title: Personas
         form: Formulario de búsqueda de personas
         submit: Buscar
-
-domicilio:
-    edit:
-        link: Editar datos
-    show:
-        title: Información de domicilio
-        data: Datos del domicilio
-        solicitud:
-            list: Lista de solicitudes registradas para este domicilio
-            vacio: El domicilio no presenta solicitudes registradas
-        domicilio:
-            list: Lista de otros domicilios registrados con el mismo rol
-            vacio: No se encontraron otros domicilios registrados con el mismo rol
-    form:
-        id: ID
-        direccion: Dirección
-        unidadvecinal: Unidad Vecinal
-        rol: Rol
-        persona: Persona
-        buscar: Buscar
-        seleccionar: Seleccionar
-        created_at: Registro
-        updated_at: Actualización
-
-encuestador:
-    form:
-        id: ID
-        rut: Rut
-        nombre: Nombre
-        apellido: Apellido
-        email: Email
-        celular: Celular
-        created_at: Registro
-        updated_at: Actualización
-    index:
-        title: Encuestadores
-        list: Lista de encuestadores
-        link: Volver a la lista
-    new:
-        title: Encuestadores
-        link: Nuevo encuestador
-        form: Formulario de registro de encuestador
-        submit: Registrar encuestador
-        flash: Nuevo encuestador registrado.
-    edit:
-        title: Encuestadores
-        link: Editar datos
-        form: Formulario de edición de encuestador
-        submit: Guardar cambios
-        flash: Los cambios en el encuestador fueron registrados satisfactoriamente.
-    show:
-        title: Encuestadores
-        link: Mostrar datos
-        data: Datos de encuestador
-    delete:
-        link: Borrar encuestador
-        title: Borrado de encuestador
-        message: Los datos no podrán ser recuperados.
-        submit: Confirmar borrado
-        flash: El encuestador fué borrado.

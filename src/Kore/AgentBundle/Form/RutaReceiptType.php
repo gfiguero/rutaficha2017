@@ -20,7 +20,7 @@ class RutaReceiptType extends AbstractType
                 'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
                 'translation_domain' => 'KoreAgentBundle',
                 'required' => true,
-            )) 
+            ))
             ->add('encuestador', null, array(
                 'label' => 'ruta.form.encuestador',
                 'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),

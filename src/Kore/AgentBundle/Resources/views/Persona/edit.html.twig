@@ -6,14 +6,14 @@
 
 {% trans_default_domain 'KoreAgentBundle' %}
 
-{% block title %}{{ 'persona.edit.title'|trans({'%id%':persona.id}) }}{% endblock %}
+{% block title %}{{ 'persona.edit.title'|trans }}{% endblock %}
 
 {% block body %}
 
     <div id="page-wrapper">
         <div class="row" id="page-header">
             <div class="col-lg-12">
-                <h1 class="page-header">{% block icons %}{{ parent() }}{% endblock %}{{ 'persona.edit.title'|trans({'%id%':persona.id}) }}</h1>
+                <h1 class="page-header">{% block icons %}{{ parent() }}{% endblock %}{{ 'persona.edit.title'|trans }}</h1>
                 {% block flashbag %}{{ parent() }}{% endblock %}
             </div>
         </div>

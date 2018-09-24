@@ -42,14 +42,14 @@
                                         <div class="btn-group" role="group"><a type="button" class="btn btn-xs btn-default disabled">{{ icon('edit fa-fw') }}</a></div>
                                         {#}<div class="btn-group" role="group"><a type="button" class="btn btn-xs btn-default disabled">{{ icon('trash fa-fw') }}</a></div>{#}
                                     </th>
-                                    <th>{{ knp_pagination_sortable(encuestadors, 'encuestador.form.nombre'|trans, 'nombre') }}{% if sort == 'nombre' %}{% if direction == 'desc' %}{{ icon('caret-down') }}{% else %}{{ icon('caret-up') }}{% endif %}{% endif %}</th>
-                                    <th>{{ knp_pagination_sortable(encuestadors, 'encuestador.form.apellido'|trans, 'apellido') }}{% if sort == 'apellido' %}{% if direction == 'desc' %}{{ icon('caret-down') }}{% else %}{{ icon('caret-up') }}{% endif %}{% endif %}</th>
-                                    <th>{{ knp_pagination_sortable(encuestadors, 'encuestador.form.celular'|trans, 'celular') }}{% if sort == 'celular' %}{% if direction == 'desc' %}{{ icon('caret-down') }}{% else %}{{ icon('caret-up') }}{% endif %}{% endif %}</th>
-                                    <th>{{ knp_pagination_sortable(encuestadors, 'encuestador.form.created_at'|trans, 'created_at') }}{% if sort == 'created_at' %}{% if direction == 'desc' %}{{ icon('caret-down') }}{% else %}{{ icon('caret-up') }}{% endif %}{% endif %}</th>
+                                    <th>{{ knp_pagination_sortable(encuestadores, 'encuestador.form.nombre'|trans, 'nombre') }}{% if sort == 'nombre' %}{% if direction == 'desc' %}{{ icon('caret-down') }}{% else %}{{ icon('caret-up') }}{% endif %}{% endif %}</th>
+                                    <th>{{ knp_pagination_sortable(encuestadores, 'encuestador.form.apellido'|trans, 'apellido') }}{% if sort == 'apellido' %}{% if direction == 'desc' %}{{ icon('caret-down') }}{% else %}{{ icon('caret-up') }}{% endif %}{% endif %}</th>
+                                    <th>{{ knp_pagination_sortable(encuestadores, 'encuestador.form.celular'|trans, 'celular') }}{% if sort == 'celular' %}{% if direction == 'desc' %}{{ icon('caret-down') }}{% else %}{{ icon('caret-up') }}{% endif %}{% endif %}</th>
+                                    <th>{{ knp_pagination_sortable(encuestadores, 'encuestador.form.created_at'|trans, 'created_at') }}{% if sort == 'created_at' %}{% if direction == 'desc' %}{{ icon('caret-down') }}{% else %}{{ icon('caret-up') }}{% endif %}{% endif %}</th>
                                 </tr>
                             </thead>
                             <tbody>
-                            {% for key, encuestador in encuestadors %}
+                            {% for key, encuestador in encuestadores %}
                                 <tr>
                                     <td>
                                         <div class="btn-group" role="group"><a type="button" class="btn btn-xs btn-default" href="{{ path('agent_encuestador_show', { 'id': encuestador.id }) }}">{{ icon('search fa-fw') }}</a></div>
@@ -67,7 +67,7 @@
                     </div>
                     <div class="panel-footer">
                         <div class="text-center">
-                            {{ knp_pagination_render(encuestadors) }}
+                            {{ knp_pagination_render(encuestadores) }}
                         </div>
                     </div>
                 </div>
@@ -76,7 +76,7 @@
         <!-- /#page-list -->
 {#}
         <div id="page-modal">
-            {% for key, encuestador in encuestadors %}
+            {% for key, encuestador in encuestadores %}
             <div class="modal fade" id="modalDelete{{ encuestador.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog modal-sm" role="document">
                     <div class="modal-content">

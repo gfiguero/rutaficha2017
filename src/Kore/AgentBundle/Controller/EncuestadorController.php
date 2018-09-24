@@ -23,21 +23,15 @@ class EncuestadorController extends Controller
         $sort = $request->query->get('sort');
         $direction = $request->query->get('direction');
         $em = $this->getDoctrine()->getManager();
-        if($sort) $encuestadors = $em->getRepository('KoreAdminBundle:Encuestador')->findBy(array(), array($sort => $direction));
-        else $encuestadors = $em->getRepository('KoreAdminBundle:Encuestador')->findAll();
+        if($sort) $encuestadores = $em->getRepository('KoreAdminBundle:Encuestador')->findBy(array(), array($sort => $direction));
+        else $encuestadores = $em->getRepository('KoreAdminBundle:Encuestador')->findAll();
         $paginator = $this->get('knp_paginator');
-        $encuestadors = $paginator->paginate($encuestadors, $request->query->getInt('page', 1), 100);
-
-        $deleteForms = array();
-        foreach($encuestadors as $key => $encuestador) {
-            $deleteForms[] = $this->createDeleteForm($encuestador)->createView();
-        }
+        $encuestadores = $paginator->paginate($encuestadores, $request->query->getInt('page', 1), 100);
 
         return $this->render('KoreAgentBundle:Encuestador:index.html.twig', array(
-            'encuestadors' => $encuestadors,
+            'encuestadores' => $encuestadores,
             'direction' => $direction,
             'sort' => $sort,
-            'deleteForms' => $deleteForms,
         ));
     }
 
@@ -48,7 +42,7 @@ class EncuestadorController extends Controller
     public function newAction(Request $request)
     {
         $encuestador = new Encuestador();
-        $newForm = $this->createNewForm($encuestador);
+        $newForm = $this->createForm(new EncuestadorType(), $encuestador);
         $newForm->handleRequest($request);
 
         if ($newForm->isSubmitted()) {
@@ -67,32 +61,13 @@ class EncuestadorController extends Controller
     }
 
     /**
-     * Creates a form to create a new Encuestador entity.
-     *
-     * @param Encuestador $encuestador The Encuestador entity
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createNewForm(Encuestador $encuestador)
-    {
-        return $this->createForm(new EncuestadorType(), $encuestador, array(
-            'action' => $this->generateUrl('agent_encuestador_new'),
-        ));
-    }
-
-    /**
      * Finds and displays a Encuestador entity.
      *
      */
     public function showAction(Encuestador $encuestador)
     {
-        $editForm = $this->createEditForm($encuestador);
-        $deleteForm = $this->createDeleteForm($encuestador);
-
         return $this->render('KoreAgentBundle:Encuestador:show.html.twig', array(
             'encuestador' => $encuestador,
-            'editForm' => $editForm->createView(),
-            'deleteForm' => $deleteForm->createView(),
         ));
     }
 
@@ -102,8 +77,7 @@ class EncuestadorController extends Controller
      */
     public function editAction(Request $request, Encuestador $encuestador)
     {
-        $editForm = $this->createEditForm($encuestador);
-        $deleteForm = $this->createDeleteForm($encuestador);
+        $editForm = $this->createForm(new EncuestadorType(), $encuestador);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted()) {
@@ -119,56 +93,7 @@ class EncuestadorController extends Controller
         return $this->render('KoreAgentBundle:Encuestador:edit.html.twig', array(
             'encuestador' => $encuestador,
             'editForm' => $editForm->createView(),
-            'deleteForm' => $deleteForm->createView(),
         ));
     }
 
-    /**
-     * Creates a form to edit a Encuestador entity.
-     *
-     * @param Encuestador $encuestador The Encuestador entity
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createEditForm(Encuestador $encuestador)
-    {
-        return $this->createForm(new EncuestadorType(), $encuestador, array(
-            'action' => $this->generateUrl('agent_encuestador_edit', array('id' => $encuestador->getId())),
-        ));
-    }
-
-    /**
-     * Deletes a Encuestador entity.
-     *
-     */
-    public function deleteAction(Request $request, Encuestador $encuestador)
-    {
-        $deleteForm = $this->createDeleteForm($encuestador);
-        $deleteForm->handleRequest($request);
-
-        if ($deleteForm->isSubmitted() && $deleteForm->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($encuestador);
-            $em->flush();
-            $request->getSession()->getFlashBag()->add( 'danger', 'encuestador.delete.flash' );
-        }
-
-        return $this->redirect($this->generateUrl('agent_encuestador_index'));
-    }
-
-    /**
-     * Creates a form to delete a Encuestador entity.
-     *
-     * @param Encuestador $encuestador The Encuestador entity
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createDeleteForm(Encuestador $encuestador)
-    {
-        return $this->createFormBuilder()
-            ->setAction($this->generateUrl('agent_encuestador_delete', array('id' => $encuestador->getId())))
-            ->setMethod('DELETE')
-            ->getForm()
-        ;
-    }
 }
