@@ -10,6 +10,10 @@ kore_agent_solicitudestado:
     resource: "@KoreAgentBundle/Resources/config/routing/solicitudestado.yml"
     prefix:   /solicitudestado
 
+kore_agent_solicitudtipo:
+    resource: "@KoreAgentBundle/Resources/config/routing/solicitudtipo.yml"
+    prefix:   /solicitudtipo
+
 kore_agent_solicitudaccion:
     resource: "@KoreAgentBundle/Resources/config/routing/solicitudaccion.yml"
     prefix:   /solicitudaccion

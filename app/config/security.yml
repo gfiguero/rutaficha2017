@@ -5,6 +5,7 @@ security:
         in_memory:
             memory:
                 users:
+                    carmen: { password: carmen, roles: 'ROLE_USER' }
                     root: { password: %root_password%, roles: 'ROLE_USER' }
     firewalls:
         dev:
