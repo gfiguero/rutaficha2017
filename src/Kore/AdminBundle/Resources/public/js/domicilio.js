@@ -3,7 +3,7 @@ $('#sig_fichasocialbundle_domicilio_calle').autocomplete({
     autoFocus: true,
     source: function( request, response ) {
         $.ajax({
-            url: 'http://sig.emprendequillota.cl/interno/modulos/jstore/Via.php',
+            url: 'http://200.54.75.142/interno/modulos/jstore/Via.php',
             dataType: "json",
             data: {
                 query: request.term,
@@ -28,7 +28,7 @@ $('#sig_fichasocialbundle_domicilio_poblacion').autocomplete({
     autoFocus: true,
     source: function( request, response ) {
         $.ajax({
-            url: 'http://sig.emprendequillota.cl/interno/modulos/jstore/ConjResidencial.php',
+            url: 'http://200.54.75.142/interno/modulos/jstore/ConjResidencial.php',
             dataType: "json",
             data: {
                 query: request.term,
@@ -53,7 +53,7 @@ $('#sig_fichasocialbundle_domicilio_edificio').autocomplete({
     autoFocus: true,
     source: function( request, response ) {
         $.ajax({
-            url: 'http://sig.emprendequillota.cl/interno/modulos/jstore/Edificio.php',
+            url: 'http://200.54.75.142/interno/modulos/jstore/Edificio.php',
             dataType: "json",
             data: {
                 query: request.term,
@@ -78,7 +78,7 @@ $('#sig_fichasocialbundle_domicilio_departamento').autocomplete({
     autoFocus: true,
     source: function( request, response ) {
         $.ajax({
-            url: 'http://sig.emprendequillota.cl/interno/modulos/jstore/Depto.php',
+            url: 'http://200.54.75.142/interno/modulos/jstore/Depto.php',
             dataType: "json",
             data: {
                 query: request.term,
@@ -103,7 +103,7 @@ $('#sig_fichasocialbundle_domicilio_casa').autocomplete({
     autoFocus: true,
     source: function( request, response ) {
         $.ajax({
-            url: 'http://sig.emprendequillota.cl/interno/modulos/jstore/CasaLocalBodega.php',
+            url: 'http://200.54.75.142/interno/modulos/jstore/CasaLocalBodega.php',
             dataType: "json",
             data: {
                 query: request.term,
@@ -128,7 +128,7 @@ $('#sig_fichasocialbundle_domicilio_chacra').autocomplete({
     autoFocus: true,
     source: function( request, response ) {
         $.ajax({
-            url: 'http://sig.emprendequillota.cl/interno/modulos/jstore/Chacra.php',
+            url: 'http://200.54.75.142/interno/modulos/jstore/Chacra.php',
             dataType: "json",
             data: {
                 query: request.term,
@@ -153,7 +153,7 @@ $('#sig_fichasocialbundle_domicilio_parcela').autocomplete({
     autoFocus: true,
     source: function( request, response ) {
         $.ajax({
-            url: 'http://sig.emprendequillota.cl/interno/modulos/jstore/Parcela.php',
+            url: 'http://200.54.75.142/interno/modulos/jstore/Parcela.php',
             dataType: "json",
             data: {
                 query: request.term,
@@ -178,7 +178,7 @@ $('#sig_fichasocialbundle_domicilio_paradero').autocomplete({
     autoFocus: true,
     source: function( request, response ) {
         $.ajax({
-            url: 'http://sig.emprendequillota.cl/interno/modulos/jstore/ParaderoKm.php',
+            url: 'http://200.54.75.142/interno/modulos/jstore/ParaderoKm.php',
             dataType: "json",
             data: {
                 query: request.term,
@@ -203,7 +203,7 @@ $('#sig_fichasocialbundle_domicilio_sector').autocomplete({
     autoFocus: true,
     source: function( request, response ) {
         $.ajax({
-            url: 'http://sig.emprendequillota.cl/interno/modulos/jstore/Sector.php',
+            url: 'http://200.54.75.142/interno/modulos/jstore/Sector.php',
             dataType: "json",
             data: {
                 query: request.term,
@@ -251,7 +251,7 @@ $('#sig_fichasocialbundle_domicilio_rol').autocomplete({
         sector_id = (sector_id != '') ? sector_id : 'null';
 
         $.ajax({
-            url: 'http://sig.emprendequillota.cl/interno/modulos/jstore/RolxDireccion.php',
+            url: 'http://200.54.75.142/interno/modulos/jstore/RolxDireccion.php',
             dataType: "json",
             data: {
                 via_id: via_id,
@@ -281,7 +281,7 @@ $('#sig_fichasocialbundle_domicilio_rol').autocomplete({
         $(this).val(ui.item.value);
         var id = $('#sig_fichasocialbundle_domicilio_rolId').val();
         $.ajax({
-            url: 'http://sig.emprendequillota.cl/interno/modulos/jstore/DireccionXId.php',
+            url: 'http://200.54.75.142/interno/modulos/jstore/DireccionXId.php',
             dataType: "json",
             data: {
                 query: id,
@@ -321,7 +321,7 @@ $('#sig_fichasocialbundle_domicilio_rol').autocomplete({
 $('#sig_fichasocialbundle_domicilio_rolId').change( function() {
     var id = $('#sig_fichasocialbundle_domicilio_rolId').val();
     $.ajax({
-        url: 'http://sig.emprendequillota.cl/interno/modulos/jstore/DireccionXId.php',
+        url: 'http://200.54.75.142/interno/modulos/jstore/DireccionXId.php',
         dataType: "json",
         data: {
             query: id,
