@@ -28,6 +28,11 @@ class RutaType extends AbstractType
                 'translation_domain' => 'KoreAgentBundle',
                 'required' => false,
                 'placeholder' => 'ruta.form.placeholder.encuestador',
+                'query_builder' => function (EntityRepository $er) {
+                    return $er->createQueryBuilder('e')
+                        ->where('e.disabled_at is NULL')
+                    ;
+                },
             ))
             ->add('solicitudes', 'entity', array(
                 'label' => 'ruta.form.solicitudes',

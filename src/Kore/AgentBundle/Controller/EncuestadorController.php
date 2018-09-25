@@ -23,8 +23,8 @@ class EncuestadorController extends Controller
         $sort = $request->query->get('sort');
         $direction = $request->query->get('direction');
         $em = $this->getDoctrine()->getManager();
-        if($sort) $encuestadores = $em->getRepository('KoreAdminBundle:Encuestador')->findBy(array(), array($sort => $direction));
-        else $encuestadores = $em->getRepository('KoreAdminBundle:Encuestador')->findAll();
+        if($sort) $encuestadores = $em->getRepository('KoreAdminBundle:Encuestador')->findBy(array('disabled_at' => NULL), array($sort => $direction));
+        else $encuestadores = $em->getRepository('KoreAdminBundle:Encuestador')->findBy(array('disabled_at' => NULL));
         $paginator = $this->get('knp_paginator');
         $encuestadores = $paginator->paginate($encuestadores, $request->query->getInt('page', 1), 100);
 
@@ -43,6 +43,7 @@ class EncuestadorController extends Controller
     {
         $encuestador = new Encuestador();
         $newForm = $this->createForm(new EncuestadorType(), $encuestador);
+        $newForm->remove('disabled');
         $newForm->handleRequest($request);
 
         if ($newForm->isSubmitted()) {
@@ -82,6 +83,9 @@ class EncuestadorController extends Controller
 
         if ($editForm->isSubmitted()) {
             if($editForm->isValid()) {
+                if ($editForm->get('disabled')->getData()) {
+                    $encuestador->setDisabledAt(new \DateTime());
+                }
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($encuestador);
                 $em->flush();

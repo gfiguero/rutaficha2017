@@ -50,6 +50,13 @@ class EncuestadorType extends AbstractType
                 'translation_domain' => 'KoreAgentBundle',
                 'required' => false,
             ))
+            ->add('disabled', 'checkbox', array(
+                'label' => 'encuestador.form.disabled',
+                'attr'  => array( 'label_col' => 4, 'widget_col' => 8 ),
+                'translation_domain' => 'KoreAgentBundle',
+                'mapped' => false,
+                'required' => false,
+            ))
         ;
     }
 

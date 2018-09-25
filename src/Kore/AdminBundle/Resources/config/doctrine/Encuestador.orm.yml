@@ -26,9 +26,11 @@ Kore\AdminBundle\Entity\Encuestador:
         email:
             type: string
             length: 300
+            nullable: true
         celular:
             type: string
             length: 20
+            nullable: true
         created_at:
             type: datetime
             gedmo:
@@ -39,6 +41,9 @@ Kore\AdminBundle\Entity\Encuestador:
             gedmo:
                 timestampable:
                     on: update
+        disabled_at:
+            type: datetime
+            nullable: true
         deleted_at:
             type: datetime
             nullable: true

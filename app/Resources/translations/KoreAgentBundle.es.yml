@@ -214,6 +214,7 @@ encuestador:
         celular: Celular
         created_at: Registro
         updated_at: Actualización
+        disabled: Deshabilitar
     index:
         title: Encuestadores
         list: Lista de encuestadores

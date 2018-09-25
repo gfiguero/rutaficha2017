@@ -45,6 +45,11 @@ class Encuestador
     /**
      * @var \DateTime
      */
+    private $disabled_at;
+
+    /**
+     * @var \DateTime
+     */
     private $updated_at;
 
     /**
@@ -210,6 +215,30 @@ class Encuestador
     public function getCreatedAt()
     {
         return $this->created_at;
+    }
+
+    /**
+     * Set disabled_at
+     *
+     * @param \DateTime $disabled_at
+     *
+     * @return Encuestador
+     */
+    public function setDisabledAt($disabled_at)
+    {
+        $this->disabled_at = $disabled_at;
+
+        return $this;
+    }
+
+    /**
+     * Get disabled_at
+     *
+     * @return \DateTime
+     */
+    public function getDisabledAt()
+    {
+        return $this->disabled_at;
     }
 
     /**
